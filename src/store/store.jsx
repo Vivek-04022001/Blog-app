@@ -1,10 +1,19 @@
 import {configureStore} from "@reduxjs/toolkit"
 import blogsReducer from "./blogs/blogsSlice"
-export const store = configureStore({
-    reducer: {
-     blogs: blogsReducer,   
-    }
+import {persistStore, persistReducer} from "redux-persist"
+import storage from 'redux-persist/lib/storage'
+
+const persistConfig = {
+    key:'root',
+    storage,
+}
+
+const persistedReducer = persistReducer(persistConfig,{
+    blogs: blogsReducer
 })
 
+export const store = configureStore({
+    reducer: persistedReducer
+})
 
-export default store
+export const persistor = persistStore(store)

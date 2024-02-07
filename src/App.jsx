@@ -1,14 +1,22 @@
 import Header from "./components/Header";
-import "./App.css";
-import BlogsContainer from "./components/BlogsContainer";
 import CategoriesFooter from "./components/CategoriesFooter";
+import BlogsContainer from "./pages/BlogsContainer";
+import NewBlogContainer from "./pages/NewBlogContainer";
+
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <>
-      <Header/>
-      <BlogsContainer/>
-      <CategoriesFooter/>
+      <Router>
+      <Header />
+        <Routes>
+
+          <Route path="/" element={<BlogsContainer />} />
+          <Route path="/new" element={<NewBlogContainer />} />
+        </Routes>
+      <CategoriesFooter />
+      </Router>
     </>
   );
 }

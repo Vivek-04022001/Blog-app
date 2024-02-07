@@ -12,12 +12,12 @@ const BlogsContainer = () => {
   const renderBlogs = blogs.filter(blog => activeCategory === "All" || blog.category === activeCategory);
  
   return (
-    <section className="Container-sm min-h-[90dvh]  border-black overflow-hidden ">
+    <section className="Container-sm min-h-[90dvh]  overflow-hidden ">
      <h1 className="text-center text-xl font-extrabold">{activeCategory === "All" ? "All Blogs" : `${activeCategory}`}</h1>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 ">
         {renderBlogs.map((blog) => (
           <div
-            className="max-w-[300px] card bg-base-100 shadow-xl "
+            className="max-w-[300px] card bg-white/70  shadow-xl "
             key={blog.id}
           >
             <figure>
