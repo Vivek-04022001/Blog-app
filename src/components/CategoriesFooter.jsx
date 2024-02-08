@@ -21,10 +21,10 @@ const CategoriesFooter = () => {
 
   return (
     <div className="Container-sm sticky bottom-10  ">
-      <div className=" bg-secondary/80 backdrop-blur-sm px-2 py-3 flex justify-around border-yellow-800 border-dashed border-2 mx-4">
+      <div className=" bg-secondary/30 backdrop-blur-sm px-2 py-3 flex justify-around mx-4">
         {categories.map((category) => (
           <button
-            className={`btn  btn-ghost text-black
+            className={`btn  btn-ghost 
         ${activeCategory === category ? "btn-active border border-black " : ""}
         text-yellow-100 `}
             key={category}
