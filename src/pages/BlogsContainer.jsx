@@ -4,17 +4,22 @@ import {
   selectAllBlogs,
   selectActiveCategory,
 } from "../store/blogs/blogsSlice.jsx";
+import CreateNewBlogButton from "../components/CreateNewBlogButton.jsx";
 
 const BlogsContainer = () => {
-  
   const blogs = useSelector(selectAllBlogs);
   const activeCategory = useSelector(selectActiveCategory);
-  const renderBlogs = blogs.filter(blog => activeCategory === "All" || blog.category === activeCategory);
- 
+  const renderBlogs = blogs.filter(
+    (blog) => activeCategory === "All" || blog.category === activeCategory
+  );
+
   return (
-    <section className="Container-sm min-h-[90dvh]  overflow-hidden ">
-     <h1 className="text-center text-xl font-extrabold">{activeCategory === "All" ? "All Blogs" : `${activeCategory}`}</h1>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 ">
+    <section className="Container-sm min-h-[90dvh] px-20 outline relative ">
+      <CreateNewBlogButton />
+      <h1 className="text-center text-xl font-extrabold">
+        {activeCategory === "All" ? "All Blogs" : `${activeCategory}`}
+      </h1>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 justify-between ">
         {renderBlogs.map((blog) => (
           <div
             className="max-w-[300px] card bg-white/70  shadow-xl "

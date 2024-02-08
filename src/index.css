@@ -2,13 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-
+body{
+  overflow-x: hidden;
+}
 
 .Container{
-  @apply container max-w-6xl mx-auto px-4 py-6
+  @apply container max-w-4xl mx-auto px-4 py-6 
 }
 
 .Container-sm{
-  @apply container max-w-4xl mx-auto px-4 py-6
+  @apply container max-w-2xl mx-auto px-4 py-6
 
 }

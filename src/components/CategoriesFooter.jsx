@@ -2,8 +2,10 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectActiveCategory } from "../store/blogs/blogsSlice";
 import { setActiveCategory } from "../store/blogs/blogsSlice";
-
+import { useLocation } from "react-router-dom";
 const CategoriesFooter = () => {
+  const location = useLocation();
+  
   const categories = [
     "All",
     "Web Development",
@@ -20,7 +22,7 @@ const CategoriesFooter = () => {
   };
 
   return (
-    <div className="Container-sm sticky bottom-10  ">
+    <div className={`${location.pathname === '/new' && 'hidden'} Container-sm sticky bottom-10 z-10`}  >
       <div className=" bg-secondary/30 backdrop-blur-sm px-2 py-3 flex justify-around mx-4">
         {categories.map((category) => (
           <button
