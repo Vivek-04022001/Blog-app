@@ -7,7 +7,7 @@ const CreateNewBlogButton = () => {
   };
   return (
     <IoMdAdd
-      className="cursor-pointer absolute w-20 h-20 -top-8 -right-8 z-50 rounded-full outline bg-white hover:bg-white/60 shadow-xl transition-all duration-300 ease-in-out"
+      className="cursor-pointer absolute w-20 h-20 -top-8 -right-8 z-50 rounded-full outline bg-white/90 hover:bg-white shadow-xl transition-all duration-300 ease-in-out "
       onClick={handleNavigate}
     />
   );

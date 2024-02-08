@@ -4,7 +4,9 @@ import BlogsContainer from "./pages/BlogsContainer";
 import NewBlogContainer from "./pages/NewBlogContainer";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import CreateNewBlogButton from "./components/CreateNewBlogButton";
+
+import CurrentBlog from "./pages/CurrentBlog";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
         <Routes>
           <Route path="/" element={<BlogsContainer />} />
           <Route path="/new" element={<NewBlogContainer />} />
+          <Route path='/dashboard' element={<Dashboard/>}/>
+          <Route path="/:blogId" element={<CurrentBlog />} />
         </Routes>
         <CategoriesFooter />
       </Router>

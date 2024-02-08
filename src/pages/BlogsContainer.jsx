@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import {
   selectAllBlogs,
   selectActiveCategory,
@@ -7,6 +8,7 @@ import {
 import CreateNewBlogButton from "../components/CreateNewBlogButton.jsx";
 
 const BlogsContainer = () => {
+  const navigate = useNavigate();
   const blogs = useSelector(selectAllBlogs);
   const activeCategory = useSelector(selectActiveCategory);
   const renderBlogs = blogs.filter(
@@ -14,7 +16,7 @@ const BlogsContainer = () => {
   );
 
   return (
-    <section className="Container-sm min-h-[90dvh] px-20 outline relative ">
+    <section className="Container-sm min-h-[90dvh] outline relative ">
       <CreateNewBlogButton />
       <h1 className="text-center text-xl font-extrabold">
         {activeCategory === "All" ? "All Blogs" : `${activeCategory}`}
@@ -22,7 +24,7 @@ const BlogsContainer = () => {
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 justify-between ">
         {renderBlogs.map((blog) => (
           <div
-            className="max-w-[300px] card bg-white/70  shadow-xl "
+            className="max-w-[300px] card bg-white/70 shadow-xl"
             key={blog.id}
           >
             <figure>
@@ -35,6 +37,14 @@ const BlogsContainer = () => {
                   ? blog.content.substring(0, 100) + "..."
                   : blog.content}
               </p>
+              <button
+                className="btn btn-sm bg-transparent border-2 border-dashed hover:btn-ghost"
+                onClick={() => {
+                  navigate(`/${blog.id}`);
+                }}
+              >
+                Read More
+              </button>
             </div>
           </div>
         ))}

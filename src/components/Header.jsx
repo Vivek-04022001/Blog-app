@@ -1,5 +1,4 @@
-
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <section className="Container">
@@ -37,15 +36,16 @@ const Header = () => {
                 <a>Portfolio</a>
               </li>
               <li>
-                <a>About</a>
+                <Link to="/dashboard">
+                  <a>Dashboard</a>
+                </Link>
               </li>
             </ul>
           </div>
         </div>
         <div className="navbar-center">
-          <Link to='/'>
-          
-          <a className="btn btn-ghost text-xl">BlogPost</a>
+          <Link to="/">
+            <a className="btn btn-ghost text-xl">BlogPost</a>
           </Link>
         </div>
         <div className="navbar-end">

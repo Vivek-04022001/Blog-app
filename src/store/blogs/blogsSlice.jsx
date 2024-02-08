@@ -104,6 +104,9 @@ const blogsSlice = createSlice({
     },
     setActiveCategory(state, action) {    
       state.activeCategory = action.payload;
+    },
+    deleteBlog(state, action) {   
+      state.blogsArray = state.blogsArray.filter(blog => blog.id !== action.payload);
     }
   },
 });
@@ -112,6 +115,7 @@ export const selectAllBlogs = (state) => state.blogs.blogsArray;
 export const selectActiveCategory = (state) => state.blogs.activeCategory;
 export const selectCategoriesList = (state) => state.blogs.CategoriesList;
 
-export const { blogAdded, setActiveCategory } = blogsSlice.actions;
+
+export const { blogAdded, setActiveCategory, deleteBlog } = blogsSlice.actions;
 
 export default blogsSlice.reducer;
